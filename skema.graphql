@@ -1,0 +1,33 @@
+type Berita {
+  id: Int
+  judul: String
+  deskripsi: String
+  isi: String
+  gambar: String
+}
+type Berita1 {
+  id: Int
+  judul: String
+  deskripsi: String
+  isi: String
+  gambar: String
+  comment1s: [Comment1s]
+}
+type Comment1s {
+  id: Int
+  idberita: Int
+  nama: String
+  isi: String
+}
+type Query {
+  berita: [Berita]
+  comment1s: [Comment1s]
+  getBerita(id: Int): Berita1
+}
+type Mutation {
+  createBerita(judul: String, deskripsi: String, isi: String, gambar: String): Berita
+  createComment1s(idberita: Int, nama: String, isi: String): Comment1s
+  getBerita(id: Int): Berita1
+  updateBerita(id: Int, judul: String, deskripsi: String, isi: String, gambar: String): Berita
+  deleteBerita(id: Int): Berita
+}
